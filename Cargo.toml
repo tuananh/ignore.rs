@@ -1,0 +1,24 @@
+[package]
+name = "ignore"
+version = "0.1.0"
+authors = ["Tuan Anh Tran <me@tuananh.org>"]
+edition = "2018"
+license = "MIT"
+repository = "https://github.com/tuananh/ignore.rs"
+description = "Generate .gitignore"
+readme = "./README.md"
+
+[[bin]]
+doc = false
+name = "ignore"
+path = "src/bin/ignore.rs"
+required-features = ["exe"]
+
+[features]
+default = ["exe"]
+exe = []
+
+[dependencies]
+async-std = { version ="1.7.0", features = ["attributes"] }
+structopt = "0.3.20"
+surf = "2.1.0"
