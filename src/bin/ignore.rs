@@ -15,7 +15,7 @@ struct Opt {
     )]
     write: bool,
     #[structopt(short, long, parse(try_from_str), required = true)]
-    keywords: Vec<String>
+    keywords: Vec<String>,
 }
 
 #[async_std::main]
@@ -32,7 +32,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
         if let Err(e) = writeln!(file, "{}", content) {
             eprintln!("Couldn't write to .gitignore file: {}", e);
-        }        
+        }
     } else {
         println!("{}", ignore::generate(opt.keywords).await?);
     }
